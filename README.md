@@ -2,8 +2,9 @@
 
 An OpenAPI Spec and Postman Collection for APIs that are part of the "Simple Tracker" project. 
 
+![dankshot-230302164419](https://user-images.githubusercontent.com/64292041/222576744-a65c44ee-b113-4ff6-8e68-86a9e9bf51c2.png)
 
-![mermaid-diagram-2023-03-02-163717](https://user-images.githubusercontent.com/64292041/222575759-95178f4a-f559-4a99-87d1-8437a5565cf4.svg)
+
 
 
 <!---
