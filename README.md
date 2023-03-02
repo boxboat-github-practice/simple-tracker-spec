@@ -2,6 +2,11 @@
 
 An OpenAPI Spec and Postman Collection for APIs that are part of the "Simple Tracker" project. 
 
+
+![mermaid-diagram-2023-03-02-163717](https://user-images.githubusercontent.com/64292041/222575759-95178f4a-f559-4a99-87d1-8437a5565cf4.svg)
+
+
+---
 ```mermaid
 mindmap
   root((Simple Tracker))
@@ -29,3 +34,4 @@ mindmap
       Oracle SQL
       PostgresSQL
 ```
+---
