@@ -14,8 +14,12 @@ The idea here is that we need some sort of app that can be used in many contexts
 
 __Every single API and Front End should have the following accompaniments__:
 - Dockerfile
-- devcontainer
+- devcontainer (for Codespaces, useable in vscode with Remote Containers)
 - Actions workflow for building an image and storing it in GitHub Container Registry (ideally using a reusable workflow)
+- GHAS enabled
+  - Dependabot
+  - Secret Scanning
+  - Code Scanning
 
 __The APIs should all additionally__:
 - Include an Action workflow that can run a smoke test verifying the API conforms to the API Spec
