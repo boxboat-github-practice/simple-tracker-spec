@@ -40,6 +40,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/employee"
+        "400":
+          description: "Missing employee name"
+      
   /employees/{employeeId}:
     parameters:
       - in: path
@@ -57,6 +60,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/employee"
+        "404":
+          description: "Employee not found"
     put:
       summary: Update an employee by ID
       requestBody:
@@ -77,11 +82,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/employee"
+        "404":
+          description: "Employee not found"
+        "400":
+          description: "Cannot update primary id"
     delete:
       summary: Delete an employee by ID
       responses:  
         "200":
           description: "OK"
+        "404":
+          description: "Employee not found"
   /clients:
     get:
       summary: Get all clients
@@ -116,6 +127,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/client"
+        "400":
+          description: "Missing client name"
   /clients/{clientId}:
     parameters:
       - in: path
@@ -133,6 +146,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/client"
+        "404":
+          description: "Client not found"
     put:
       summary: Update a client by ID
       requestBody:
@@ -153,11 +168,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/client"
+        "404":
+          description: "Client not found"
     delete:
       summary: Delete a client by ID
       responses:  
         "200":
           description: "OK"
+        "404":
+          description: "Client not found"
   /contracts:
     get:
       summary: Get all contracts
@@ -187,6 +206,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/contract"
+        "400":
+          description: "Missing or invalid client id"
   /contracts/{contractId}:
     parameters:
       - in: path
@@ -204,6 +225,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/contract"
+        "404":
+          descriptionn: "Contract not found"
     put:
       summary: Update a contract by ID
       requestBody:
@@ -219,11 +242,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/contract"
+        "400":
+          description: "Cannot update primary id"
+        "404":
+          description: "Contract not found"
     delete:
       summary: Delete a contract by ID
       responses:  
         "200":
           description: "OK"
+        "404":
+          description: "Contract not found"
   /history:
     get:
       summary: Get all history
@@ -257,6 +286,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/history"
+        "400":
+          description: "Missing or invalid client, contract, or employee id"
   /history/{historyId}:
     parameters:
       - in: path
@@ -274,6 +305,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/history"
+        "404":
+          description: "History not found"
     put:
       summary: Update an employee contract assignment by ID
       requestBody:
@@ -289,12 +322,17 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/contract"
+        "400":
+          description: "Cannot update primary id"
+        "404":
+          description: "History not found"
     delete:
       summary: Delete an employee contract assignment by ID
       responses:  
         "200":
           description: "OK"
-                
+        "404":
+          description: "History not found"
 components:
   parameters:
     employeeId:
