@@ -27,9 +27,9 @@ __The APIs should all additionally__:
 Postman collections can be run in GitHub Actions using the `newman` collection runner. 
 
 To Do:
-- [ ] create reusable workflows for building containers
-- [ ] write tests for the Postman Collection
-- [ ] create reusable workflow for smoke tests
+- [x] create reusable workflows for building containers
+- [x] write tests for the Postman Collection
+- [x] create reusable workflow for smoke tests
 - [ ] creat reusable workflow for deploying to a long-living tools cluster 
 - [ ] create helm chart for deploying a full microservice instance, allowing for hot swappabble units
 - [ ] create the kube magic to make hot swapping possible, configmaps, secrets, etc
