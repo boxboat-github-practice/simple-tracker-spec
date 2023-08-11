@@ -24,7 +24,37 @@ __Every single API and Front End should have the following accompaniments__:
 __The APIs should all additionally__:
 - Include an Action workflow that can run a smoke test verifying the API conforms to the API Spec
 
-Postman collections can be run in GitHub Actions using the `newman` collection runner. 
+Postman collections can be run in GitHub Actions using the `newman` collection runner. To run the collections during local development do the following:
+```bash
+npm install -g newman
+curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents/smoketest.sh | jq -r .contents | base64 -d > smoketest.sh
+chmod +x smoketest.sh
+
+# test types are one of [employees, clients, contracts, history]
+smoketest.sh employees
+
+...
+
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              13 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              13 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │               0 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              24 │              17 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 328ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 3.51kB (approx)                        │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 7ms [min: 3ms, max: 36ms, s.d.: 8ms] │
+└─────────────────────────────────────────────────────────────┘
+```
 
 To Do:
 - [x] create reusable workflows for building containers
