@@ -27,7 +27,9 @@ __The APIs should all additionally__:
 Postman collections can be run in GitHub Actions using the `newman` collection runner. To run the collections during local development do the following:
 ```bash
 npm install -g newman
-curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents/smoketest.sh | jq -r .contents | base64 -d > smoketest.sh
+curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents/smoketest.sh \
+  | jq -r .contents | base64 -d > smoketest.sh
+
 chmod +x smoketest.sh
 
 # test types are one of [employees, clients, contracts, history]
