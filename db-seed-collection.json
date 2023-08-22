@@ -1,0 +1,658 @@
+{
+	"info": {
+		"_postman_id": "c7ffd21a-12b2-4af7-ba1f-bc2ac028a260",
+		"name": "simple-tracker-seed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "seed",
+			"item": [
+				{
+					"name": "Create new employee",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"employee_id\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test user\",\n  \"github\": \"testuser1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						},
+						"description": "Add a new employee with given name and github username"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"consequat reprehenderit commodo ipsum\",\n  \"github\": \"cillum eiusmod do in\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employees",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": -89659898,\n  \"name\": \"eiusmod sed ullamco\",\n  \"github\": \"amet nostrud sed fugiat\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"client_id\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients"
+							]
+						},
+						"description": "Add a new client with given name and url"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": -53115082,\n  \"name\": \"occaecat veniam in\",\n  \"url\": \"aliquip ad ips\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new contract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"contract_id\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": {{client_id}},\n  \"type\": \"cillum ut\",\n  \"startDate\": \"2000-01-01\",\n  \"endDate\": \"2000-01-01\",\n  \"tech\": [\n    \"eiusmod ullamco sunt laboris\",\n    \"do sed officia mollit\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contracts"
+							]
+						},
+						"description": "Add a new contract with fields"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"clientId\": 42598630,\n  \"type\": \"eu non aliqua\",\n  \"startDate\": \"Duis\",\n  \"endDate\": \"laboris mollit reprehenderit exercitation\",\n  \"tech\": [\n    \"ullamco no\",\n    \"dol\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 60346319,\n  \"clientId\": 82878896,\n  \"type\": \"enim laboris Duis comm\",\n  \"startDate\": \"in anim consectetur dolor\",\n  \"endDate\": \"irure in\",\n  \"tech\": [\n    \"irure non consectetur anim\",\n    \"officia nulla Lorem in esse\"\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new client for update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"client_id_update\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/clients",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients"
+							]
+						},
+						"description": "Add a new client with given name and url"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/clients",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clients"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": -53115082,\n  \"name\": \"occaecat veniam in\",\n  \"url\": \"aliquip ad ips\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new employee for update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"employee_id_update\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"test user\",\n  \"github\": \"testuser1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employees",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employees"
+							]
+						},
+						"description": "Add a new employee with given name and github username"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"consequat reprehenderit commodo ipsum\",\n  \"github\": \"cillum eiusmod do in\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/employees",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"employees"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": -89659898,\n  \"name\": \"eiusmod sed ullamco\",\n  \"github\": \"amet nostrud sed fugiat\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new contract for update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"pm.variables.set(\"contract_id_update\", res.id)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": {{client_id}},\n  \"type\": \"cillum ut\",\n  \"startDate\": \"2000-01-01\",\n  \"endDate\": \"2000-01-01\",\n  \"tech\": [\n    \"eiusmod ullamco sunt laboris\",\n    \"do sed officia mollit\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/contracts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"contracts"
+							]
+						},
+						"description": "Add a new contract with fields"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"clientId\": 42598630,\n  \"type\": \"eu non aliqua\",\n  \"startDate\": \"Duis\",\n  \"endDate\": \"laboris mollit reprehenderit exercitation\",\n  \"tech\": [\n    \"ullamco no\",\n    \"dol\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/contracts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 60346319,\n  \"clientId\": 82878896,\n  \"type\": \"enim laboris Duis comm\",\n  \"startDate\": \"in anim consectetur dolor\",\n  \"endDate\": \"irure in\",\n  \"tech\": [\n    \"irure non consectetur anim\",\n    \"officia nulla Lorem in esse\"\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new history",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let res = pm.response.json()",
+									"let req = JSON.parse(pm.request.body.raw)",
+									"pm.variables.set(\"history_id\", res.id)",
+									"pm.variables.set(\"role\", req.role)",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"response body should contain id, clientId, contractId, employeeId and role fields\", function () {",
+									"    pm.expect(res).to.have.property(\"id\")",
+									"    pm.expect(res).to.have.property(\"clientId\")",
+									"    pm.expect(res).to.have.property(\"contractId\")",
+									"    pm.expect(res).to.have.property(\"clientName\")",
+									"    pm.expect(res).to.have.property(\"employeeId\") ",
+									"    pm.expect(res).to.have.property(\"employeeName\")",
+									"    pm.expect(res).to.have.property(\"role\")",
+									"});",
+									"",
+									"pm.test(\"response should have correct ids and role\", function() {",
+									"    pm.expect(res).to.have.property(\"clientId\", req.clientId)",
+									"    pm.expect(res).to.have.property(\"contractId\", req.contractId)",
+									"    pm.expect(res).to.have.property(\"employeeId\", req.employeeId)",
+									"    pm.expect(res).to.have.property(\"role\", req.role)",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clientId\": {{client_id}},\n  \"contractId\": {{contract_id}},\n  \"employeeId\": {{employee_id}},\n  \"role\": \"esse aute eu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"history"
+							]
+						},
+						"description": "Add a new contract assignment with fields"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"clientId\": 86591876,\n  \"contractId\": -49284731,\n  \"employeeId\": -44035271,\n  \"role\": \"esse aute eu\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/history",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"history"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 30062128,\n  \"clientId\": -33215485,\n  \"contractId\": 26941713,\n  \"employeeId\": 81088068,\n  \"clientName\": \"nostrud mol\",\n  \"employeeName\": \"ipsum Lorem labore consectetur\",\n  \"role\": \"et commodo consectetur dolore\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
