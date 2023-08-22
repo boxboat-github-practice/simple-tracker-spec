@@ -24,7 +24,15 @@ __Every single API and Front End should have the following accompaniments__:
 __The APIs should all additionally__:
 - Include an Action workflow that can run a smoke test verifying the API conforms to the API Spec
 
-Postman collections can be run in GitHub Actions using the `newman` collection runner. To run the collections during local development do the following:
+Postman collections can be run in GitHub Actions using the `newman` collection runner. 
+
+```bash
+newman run -e Local.postman_environment.json api-test-collection.json
+```
+
+The `simple-tracker-api.postman_collection.json` was generated from the api spec. It is here as a reference.
+
+To run the collections during local development without needing to grab the collection and environment files, do the following:
 ```bash
 npm install -g newman
 curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents/smoketest.sh \

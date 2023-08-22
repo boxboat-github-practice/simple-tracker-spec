@@ -9,7 +9,7 @@ HALP() {
   printf '\nwhere <test type> is one of [employees, clients, contracts, history]\n'
 }
 
-if [ $1 -z ]; then
+if [ "$1" -z ]; then
   HALP
 fi
 
