@@ -1,6 +1,6 @@
 #!/bin/bash
 
-collection="sql-test-collection.json"
+collection="api-test-collection.json"
 environment="Local.postman_environment.json"
 repo="https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents"
 
