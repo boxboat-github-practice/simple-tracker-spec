@@ -36,7 +36,7 @@ To run the collections during local development without needing to grab the coll
 ```bash
 npm install -g newman
 curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/contents/smoketest.sh \
-  | jq -r .contents | base64 -d > smoketest.sh
+  | jq -r .content | base64 -d > smoketest.sh
 
 chmod +x smoketest.sh
 
