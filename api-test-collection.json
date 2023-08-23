@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "44768c2c-db66-4990-85f7-7ec4bb01d408",
+		"_postman_id": "8774f997-e6fd-4cf5-94dd-9b367ec2b53a",
 		"name": "simple-tracker-api",
 		"description": "This API allows management of client contracts and tracks history of employee contract assignments\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -2882,95 +2882,6 @@
 					]
 				},
 				{
-					"name": "Create client for update",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"let res = pm.response.json()",
-									"pm.variables.set(\"client_id_update\", res.id)",
-									"",
-									"pm.test(\"response must be valid and have a body\", function () {",
-									"    pm.response.to.be.ok;",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/clients",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"clients"
-							]
-						},
-						"description": "Add a new client with given name and url"
-					},
-					"response": [
-						{
-							"name": "OK",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"name\": \"l\",\n  \"url\": \"elit est\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/clients",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"clients"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n  \"id\": -53115082,\n  \"name\": \"occaecat veniam in\",\n  \"url\": \"aliquip ad ips\"\n}"
-						}
-					]
-				},
-				{
 					"name": "Update a contract",
 					"event": [
 						{
@@ -3028,7 +2939,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"clientId\": {{client_id_update}},\n  \"type\": \"eu non aliqua\",\n  \"startDate\": \"2001-01-01\",\n  \"endDate\": \"2031-01-01\"\n}",
+							"raw": "{\n  \"clientId\": {{client_id}},\n  \"type\": \"eu non aliqua\",\n  \"startDate\": \"2001-01-01\",\n  \"endDate\": \"2031-01-01\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3767,6 +3678,80 @@
 											"key": "contractId",
 											"value": "-10462160",
 											"description": "(Required) Numeric ID of the contract"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete a client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"response must have OK status\", function () {",
+									"    pm.response.to.be.ok;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/clients/:clientId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"clients",
+								":clientId"
+							],
+							"variable": [
+								{
+									"key": "clientId",
+									"value": "{{client_id}}",
+									"description": "(Required) Numeric ID of the client"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/clients/:clientId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"clients",
+										":clientId"
+									],
+									"variable": [
+										{
+											"key": "clientId",
+											"value": "-10462160",
+											"description": "(Required) Numeric ID of the client"
 										}
 									]
 								}
