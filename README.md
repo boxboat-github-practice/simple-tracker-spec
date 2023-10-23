@@ -40,6 +40,9 @@ curl https://api.github.com/repos/boxboat-github-practice/simple-tracker-spec/co
 
 chmod +x smoketest.sh
 
+# seed the db with some data
+smoketest.sh seed
+
 # test types are one of [employees, clients, contracts, history]
 smoketest.sh employees
 
